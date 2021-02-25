@@ -1,0 +1,30 @@
+name: Integration tests
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Preparar net
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1
+
+      - name: crear imatges
+        run: docker-compose build
+
+      - name: Executar tests
+        run: docker-compose up -d
+
+      - name: Executar tests
+        run: dotnet test
+
+      - name: Aturar
+        run: docker-compose down
+
+
