@@ -26,7 +26,4 @@ jobs:
       - name: Executar tests
         run: dotnet test
 
-      - name: Aturar
-        run: docker-compose down
-
 
