@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
 
       - name: Preparar net
         uses: actions/setup-dotnet@v1
