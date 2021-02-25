@@ -10,7 +10,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          submodules: 'recursive'
+          submodules: recursive
 
       - name: Preparar net
         uses: actions/setup-dotnet@v1
@@ -20,7 +20,7 @@ jobs:
       - name: crear imatges
         run: docker-compose build
 
-      - name: Executar tests
+      - name: Iniciar aplicació
         run: docker-compose up -d
 
       - name: Executar tests
